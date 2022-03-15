@@ -5,11 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogDeCafé</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- prefetch ayuda a cargar primero la pagina siguiente a la que el usuario va a acceder -->
+
+    <link rel="prefetch" href="nosotros.html" as="document">
+
+    <!-- Preload  ayuda para el performance ya que carga primero esta-->
+    <link rel="Preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="Preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" as="font" crossorigin="crossorigin">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="Preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 <body>
 
@@ -45,10 +59,18 @@
     <div class="contenedor contenido-principal">
         <main class="blog">
             <h3>Nuestro Blog</h3>
+
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog1.jpg" alt="Imagen Blog">
+                    <picture>
+                        <!-- aqui le da prioridad al webp que pesa menos pero si no lo soporta el navegador lo que va hacer es cargar el jpg -->
+                        <source loading="lazy" srcset="img/blog1.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog1.jpg" alt="Imagen Blog">
+                    </picture>
+                    
                 </div>
+
+                <!-- loading lazy ayuda a cargar la imagen cuando el usuario la requiera -->
 
                 <div class="entrada__contenido">
                     <h4 class="no-margin">
@@ -61,7 +83,11 @@
 
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog2.jpg" alt="Imagen Blog">
+                    <picture>
+                        <!-- aqui le da prioridad al webp que pesa menos pero si no lo soporta el navegador lo que va hacer es cargar el jpg -->
+                        <source loading="lazy" srcset="img/blog2.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog2.jpg" alt="Imagen Blog">
+                    </picture>
                 </div>
 
                 <div class="entrada__contenido">
@@ -75,7 +101,11 @@
 
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="img/blog3.jpg" alt="Imagen Blog">
+                    <picture>
+                        <!-- aqui le da prioridad al webp que pesa menos pero si no lo soporta el navegador lo que va hacer es cargar el jpg -->
+                        <source loading="lazy" srcset="img/blog3.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog3.jpg" alt="Imagen Blog">
+                    </picture>
                 </div>
 
                 <div class="entrada__contenido">
@@ -149,5 +179,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/modernizr.js">
+
+    </script>
 </body>
 </html>
